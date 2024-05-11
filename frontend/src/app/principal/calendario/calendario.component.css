@@ -1,53 +1,35 @@
-#calendario {
-  /* fallback for old browsers */
-  background: #fccb90;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(
-    to right,
-    #ee7724,
-    #d8363a,
-    #dd3675,
-    #b44593
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+body {
+  background-color: #f5f1e9;
 }
 
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
-  }
-}
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
-  }
-}
-/* Para poner tamaño de letra
-*{
-  font-size: calc(2vw);
-}*/
-
-ol {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  padding: 0;
+#calendar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  font-family: "lato", sans-serif;
 }
 
-li {
-  text-align: right;
-}
-.primer-dia {
-  grid-column-start: 5;
+#calendar_weekdays div {
+  display: inline-block;
+  vertical-align: top;
 }
 
-.nombre-dia {
-  border: 2px;
-  border-color: black;
-  font-weight: bold;
+#calendar_content,
+#calendar_weekdays,
+#calendar_header {
+  position: relative;
+  width: 320px;
+  overflow: hidden;
+  float: left;
+  z-index: 10;
+}
+
+#calendar_weekdays div,
+#calendar_content div {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
   text-align: center;
+  background-color: #ffffff;
+  color: #787878;
 }

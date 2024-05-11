@@ -1,6 +1,7 @@
 //Modulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -50,6 +51,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
