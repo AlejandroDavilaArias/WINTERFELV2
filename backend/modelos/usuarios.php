@@ -39,7 +39,7 @@
         }
 
         public function editar($id,$params){
-            $editar = "UPDATE usuarios SET nombre = '$params->nombre', '$params->correo', '$params->contrasena' WHERE id_usuario = $id)";
+            $editar = "UPDATE usuarios SET nombre = '$params->nombre', correo = '$params->correo', contrasena = '$params->contrasena' WHERE id_usuario = $id";
             mysqli_query($this->conexion, $editar);
             $vec = [];
             $vec['resultado'] = "OK";

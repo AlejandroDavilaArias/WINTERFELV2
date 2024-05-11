@@ -15,8 +15,9 @@
         break;
 
         case 'insertar':
-            $json = file_get_contents('php://input');
-            //para ensayar.. $json = '{fecha:12/06/2024,"correo":"davil45@hotmail.com","contrasena":"1234"}';
+            //$json = file_get_contents('php://input');
+            //para ensayar.. 
+            $json = '{fecha:12/06/2024,fecha:2022-01-15,hora:14:30:00}';
             $params = json_decode($json);
             $vec = $notas->insertar($params);
         break;

@@ -16,7 +16,7 @@
 
         case 'insertar':
             $json = file_get_contents('php://input');
-            //para ensayar.. $json = '{"nombre":"prueba2","correo":"davil45@hotmail.com","contrasena":"1234"}';
+            //Para insertar //$json = '{"nombre":"prueba3","correo":"davil45@gmail.com","contrasena":"4321"}';
             $params = json_decode($json);
             $vec = $usuarios->insertar($params);
         break;
@@ -24,13 +24,16 @@
         case 'eliminar':
             $id = $_GET['id'];
             $vec = $usuarios->eliminar($id);
+            //Para eliminar ?control=eliminar&id=11
         break;
 
         case 'editar':
             $json = file_get_contents('php://input');
+            //Para editar $json = '{"nombre":"prueba3","correo":"davil46@hotmail.com","contrasena":"1234567"}';
             $params = json_decode($json);
             $id = $_GET['id'];
             $vec = $usuarios->editar($id, $params);
+            //Para editar ?control=editar&id=1
         break;
 
         case 'filtro':
