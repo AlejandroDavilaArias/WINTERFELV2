@@ -1,4 +1,4 @@
-#navegador {
+.gradient-custom-2 {
   /* fallback for old browsers */
   background: #fccb90;
 
@@ -10,6 +10,11 @@
     #dd3675,
     #b44593
   );
+
+  .login {
+    color: white;
+    text-decoration: none;
+  }
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
@@ -25,29 +30,4 @@
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
   }
-}
-
-a {
-  font-weight: 700;
-}
-
-.cerrar {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  padding: 5px 10px;
-  color: white;
-  background-color: #d8363a;
-  text-decoration: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-a:hover {
-  background: #b44593;
-  border-radius: 4px;
-}
-
-#cerrar:hover {
-  background: #d8363a;
 }

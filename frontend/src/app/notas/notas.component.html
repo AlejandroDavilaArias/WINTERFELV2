@@ -1,43 +1,74 @@
 <app-navegador></app-navegador>
-<app-agregar-tarea></app-agregar-tarea>
-<div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">Nota #1:
-                <input type="text" #nota1 /> <input type="button" value="Guardar" (click)="nota1" />
-            </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                {{nota1.value}}
+<!--Contenido-->
+<br>
+<h1 class="contenedor">Notas</h1>
+<br>
+<div class="contenedor">
+    <hr>
+    <input type="button" value="Insertar Nota" class="btn btn-outline-dark" (click)="mostrar_form('ver')">
+    <hr>
+    <!--formulario-->
+    <div id="formulario" *ngIf="mform==true">
+        <div class="row">
+            <div class="col-lg-3">
+                <input id="datos" type="date" class="form-control" placeholder="Fecha" [(ngModel)]="obj_notas.fecha">
+                <span style="color:red;" *ngIf="validar_fecha == false">Insertar fecha</span>
+            </div>
+            <div class="col-lg-3">
+                <input id="datos" type="time" class="form-control" placeholder="Hora" [(ngModel)]="obj_notas.hora">
+                <span style="color:red;" *ngIf="validar_hora == false">Insertar hora</span>
+            </div>
+            <div class="col-lg-3">
+                <input id="datos" type="text" class="form-control" placeholder="Nota" [(ngModel)]="obj_notas.nota">
+                <span style="color:red;" *ngIf="validar_nota == false">Insertar nota</span>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <input type="button" value="Guardar" class="btn btn-outline-success" style="width:100%;"
+                    (click)="validar('guardar')" *ngIf="botones_form == false">
+                <input type="button" value="Editar" class="btn btn-outline-light" style="width:100%;"
+                    (click)="validar('editar')" *ngIf="botones_form == true">
+            </div>
+            <div class="col-lg-4">
+                <input type="button" value="Cancelar" class="btn btn-outline-dark" style="width:100%;"
+                    (click)="mostrar_form('no ver')">
             </div>
         </div>
     </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Nota #2
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                Nota para hacer...
+
+</div>
+<hr>
+<div id="tabla">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Nota</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr *ngFor="let item of notas">
+                        <td>{{item.id_nota}}</td>
+                        <td>{{item.fecha}}</td>
+                        <td>{{item.hora}}</td>
+                        <td>{{item.nota}}</td>
+                        <td>
+                            <span id="icono-fondo" class="fas fa-edit" style="color: blue; cursor:pointer"
+                                title="Editar" (click)="cargar_datos(item, item.id_nota)"></span>
+                            <span id="icono-fondo" class="fas fa-minus-square" style="color: red; cursor:pointer"
+                                title="Eliminar" (click)="eliminar(item.id_nota)"></span>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Nota #3
-            </button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                Nota para hacer...
-            </div>
-        </div>
+        <div class="col-lg-1"></div>
     </div>
 </div>

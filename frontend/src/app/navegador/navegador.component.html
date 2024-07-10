@@ -1,12 +1,13 @@
 <nav id="navegador" class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a id="agenda" class="navbar-brand" href="principal">Agenda</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <img style="width: 10%;" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+            alt="icono">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="principal">Agenda</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="calendario">Calendario</a>
                 </li>
@@ -19,6 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" aria-disabled="true">WINTERFELL</a>
                 </li>
+                <li class="nav-item"><a class="nav-link disabled" aria-disabled="true"
+                        style="text-transform:uppercase;">BIENVENIDO: {{nombre}}</a>
+                </li>
+                <div class="cerrar">
+                    <li class="nav-item">
+                        <a class="nav-link" id="cerrar" (click)="cerrar()">Cerrar Sesion</a>
+                    </li>
+                </div>
+
             </ul>
         </div>
     </div>

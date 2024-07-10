@@ -1,5 +1,5 @@
 <?php
-    class Notas{
+    class cita{
         //Atributo
         public $conexion;
 
@@ -8,8 +8,8 @@
             $this->conexion = $conexion;
         }
         //Metodos
-        public function consultar() {
-            $con = "SELECT * FROM notas ORDER BY id_nota";
+        public function consulta() {
+            $con = "SELECT * FROM cita ORDER BY fecha";
             $res = mysqli_query($this->conexion, $con);
             $vec = [];
 
@@ -20,7 +20,7 @@
         }
 
         public function eliminar($id){
-            $del = "DELETE FROM notas WHERE id_nota = $id";
+            $del = "DELETE FROM cita WHERE id_citas = $id";
             mysqli_query($this->conexion, $del);
             $vec = [];
             $vec['resultado'] = "OK";
@@ -29,19 +29,17 @@
         }
 
         public function insertar($params){
-            $ins = "INSERT INTO notas(fecha,hora,nota)
-            VALUES('$params->fecha','$params->hora','$params->nota')";
+            $ins = "INSERT INTO cita(fecha,hora,nota)
+                    VALUES('$params->fecha','$params->hora','$params->nota')";
             mysqli_query($this->conexion, $ins);
             $vec = [];
-            $vec['resultado'] = "OK";
-            $vec['mensaje'] = "El usuario a sido guardado";
+            $vec["resultado"] = "OK";
+            $vec["mensaje"] = "El usuario a sido guardado";
             return $vec;
         }
 
         public function editar($id,$params){
-            //`notas`.`id_nota` = 85;
-            $editar = "UPDATE notas SET fecha = '$params->fecha',
-            hora = '$params->hora', nota = '$params->nota' WHERE id_nota = $id";
+            $editar = "UPDATE cita SET fecha = '$params->fecha', hora = '$params->hora', nota = '$params->nota' WHERE id_citas = $id";
             mysqli_query($this->conexion, $editar);
             $vec = [];
             $vec['resultado'] = "OK";
@@ -50,7 +48,7 @@
         }
 
         public function filtro($valor){
-            $filtro = "SELECT * FROM notas WHERE id_notas LIKE '%$valor%'";
+            $filtro = "SELECT * FROM cita WHERE fecha LIKE '%$valor%'";
             $res = mysqli_query($this->conexion,$filtro);
             $vec = [];
 

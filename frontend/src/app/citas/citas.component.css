@@ -1,0 +1,21 @@
+input {
+  font-size: 1.2rem;
+  background: none;
+  color: black;
+}
+
+#datos {
+  border: none;
+  outline: 0px;
+  border-bottom: 1px solid black;
+}
+
+#icono-fondo {
+  background: black;
+  border-radius: 3px;
+  margin: 1px;
+}
+
+.contenedor {
+  margin: 1rem;
+}

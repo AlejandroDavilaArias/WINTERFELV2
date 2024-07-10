@@ -1,0 +1,5 @@
+.container {
+  border: 2px solid black;
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  border-radius: 10px;
+}

@@ -3,38 +3,38 @@
     header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
     require_once("../conexion.php");
-    require_once("../modelos/notas.php");
+    require_once("../modelos/citas.php");
 
     $control = $_GET['control'];
 
-    $notas = new notas($conexion);
+    $cita = new cita($conexion);
 
     switch ($control) {
         case 'consulta':
-            $vec = $notas->consultar();
+            $vec = $cita->consulta();
         break;
 
         case 'insertar':
             $json = file_get_contents('php://input');
             $params = json_decode($json);
-            $vec = $notas->insertar($params);
+            $vec = $cita->insertar($params);
         break;
 
         case 'eliminar':
             $id = $_GET['id'];
-            $vec = $notas->eliminar($id);
+            $vec = $cita->eliminar($id);
         break;
 
         case 'editar':
             $json = file_get_contents('php://input');
             $params = json_decode($json);
             $id = $_GET['id'];
-            $vec = $notas->editar($id, $params);
+            $vec = $cita->editar($id, $params);
         break;
 
         case 'filtro':
             $dato = $_GET['dato'];
-            $vec = $notas->filtro($dato);
+            $vec = $cita->filtro($dato);
         break;
     }
 

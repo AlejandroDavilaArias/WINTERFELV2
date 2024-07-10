@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //Componentes
+import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavegadorComponent } from './navegador/navegador.component';
@@ -22,14 +23,25 @@ import { CitasComponent } from './citas/citas.component';
 import { MesesComponent } from './calendario/meses/meses.component';
 import { DiasComponent } from './dias/dias.component';
 import { RegistroComponent } from './inicio-seccion/registro/registro.component';
+import { NoEncontroComponent } from './no-encontro/no-encontro.component';
+import { validaruserGuard } from './guard/validaruser.guard';
 
 const routes: Routes = [
-  { path: 'login', component: InicioSeccionComponent },
-  { path: 'principal', component: PrincipalComponent },
-  { path: 'notas', component: NotasComponent },
-  { path: 'calendario', component: CalendarioComponent },
-  { path: 'citas', component: CitasComponent },
+  {
+    path: 'principal',
+    component: PrincipalComponent,
+    canActivate: [validaruserGuard],
+  },
+  { path: 'notas', component: NotasComponent, canActivate: [validaruserGuard] },
+  {
+    path: 'calendario',
+    component: CalendarioComponent,
+    canActivate: [validaruserGuard],
+  },
+  { path: 'citas', component: CitasComponent, canActivate: [validaruserGuard] },
   { path: 'registro', component: RegistroComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NoEncontroComponent },
 ];
 
 @NgModule({
@@ -48,6 +60,8 @@ const routes: Routes = [
     MesesComponent,
     DiasComponent,
     RegistroComponent,
+    NoEncontroComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

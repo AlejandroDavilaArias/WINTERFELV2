@@ -1,4 +1,4 @@
-<!--<section class="" style="background-color: #eee;">
+<section class="" style="background-color: #eee;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-xl-10">
@@ -17,15 +17,15 @@
                                     <p>Ingrese sus datos</p>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" class="form-control" placeholder="Ingresa email"
-                                            [(ngModel)]="email" />
-                                        <label class="form-label">Usuario</label>
+                                        <input type="email" id="form2Example11" class="form-control"
+                                            placeholder="Ingresa email" [(ngModel)]="email" name="email" />
+                                        <label class="form-label" for="form2Example11">Usuario</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" class="form-control" placeholder="Ingresa Contraseña"
-                                            [(ngModel)]="clave" />
-                                        <label class="form-label">Contraseña</label>
+                                        <input type="password" id="form2Example22" class="form-control"
+                                            placeholder="Ingresa Contraseña" [(ngModel)]="clave" name="clave" />
+                                        <label class="form-label" for="form2Example22">Contraseña</label>
                                     </div>
                                     <div class="col-12" *ngIf="error==true">
                                         <span style="color: red;">Email o contraseña incorrecta</span><br>
@@ -64,4 +64,4 @@
             </div>
         </div>
     </div>
-</section>-->
+</section>

@@ -1,5 +1,5 @@
 button,
-div {
+div .casa {
   /* fallback for old browsers */
   background: #fccb90;
 
@@ -26,4 +26,26 @@ div {
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
   }
+}
+
+.contenedor {
+  margin: 1rem;
+}
+
+input {
+  font-size: 1.2rem;
+  background: none;
+  color: black;
+}
+
+#datos {
+  border: none;
+  outline: 0px;
+  border-bottom: 1px solid black;
+}
+
+#icono-fondo {
+  background: black;
+  border-radius: 3px;
+  margin: 1px;
 }
